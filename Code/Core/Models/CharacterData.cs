@@ -20,10 +20,10 @@ public record CharacterData
 
 	public record VitalsData
 	{
-		public float Health { get; set; }
-		public float Stamina { get; set; }
-		public float Hunger { get; set; }
-		public float Thirst { get; set; }
+		public float Health { get; set; } = 100f;
+		public float Stamina { get; set; } = 100f;
+		public float Hunger { get; set; } = 100f;
+		public float Thirst { get; set; } = 100f;
 	}
 }
 
