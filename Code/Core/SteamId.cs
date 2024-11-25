@@ -36,7 +36,7 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 	{
 		return _value.GetHashCode();
 	}
-	
+
 	public int CompareTo( object? obj )
 	{
 		if ( obj is SteamId other )
@@ -48,6 +48,7 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 	public override string ToString() => _value.ToString();
 
 	public static implicit operator ulong( SteamId id ) => id._value;
+	public static implicit operator SteamId( long id ) => new((ulong)id);
 	public static implicit operator SteamId( ulong id ) => new(id);
 
 	public static bool operator ==( SteamId id1, SteamId id2 ) => id1._value == id2._value;
