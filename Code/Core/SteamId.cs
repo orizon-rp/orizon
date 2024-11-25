@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Text.Json.Serialization;
+using Orizon.Core.Json.Converters;
 
 namespace Orizon.Core;
 
+[JsonConverter( typeof(SteamIdConverter) )]
 public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, IComparable, IComparable<SteamId>,
 	IComparable<ulong>
 {
