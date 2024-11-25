@@ -7,6 +7,8 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 {
 	private readonly ulong _value;
 
+	public static SteamId Local => Game.SteamId;
+
 	public SteamId( ulong value )
 	{
 		_value = value;
