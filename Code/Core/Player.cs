@@ -17,7 +17,7 @@ public sealed class Player : Component
 	/// <remarks>
 	/// This is synced on the host.
 	/// </remarks>
-	[HostSync, Property] public SteamId SteamId { get; private set; }
+	[HostSync, ReadOnly, Property] public SteamId SteamId { get; private set; }
 
 	/// <summary>
 	/// The Steam name of the player.
@@ -25,7 +25,7 @@ public sealed class Player : Component
 	/// <remarks>
 	/// This is synced on the host.
 	/// </remarks>
-	[HostSync, Property] public string SteamName { get; set; } = null!;
+	[HostSync, ReadOnly, Property] public string SteamName { get; private set; } = null!;
 
 	/// <summary>
 	/// The player data.
