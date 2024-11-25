@@ -10,8 +10,8 @@ public readonly struct CharacterId
 	private readonly SteamId _steamId;
 	private readonly ushort _characterId;
 
-	public SteamId Owner => _steamId;
-	public ushort Id => _characterId;
+	[JsonIgnore] public SteamId Owner => _steamId;
+	[JsonIgnore] public ushort Id => _characterId;
 
 	public CharacterId( SteamId steamId, ushort characterId ) => (_steamId, _characterId) = (steamId, characterId);
 
