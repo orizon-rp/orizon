@@ -14,6 +14,8 @@ public record CharacterData
 	public DateTime DateOfBirth { get; set; }
 	public Gender Gender { get; set; }
 	public VitalsData Vitals { get; set; } = null!;
+	public Vector3 Position { get; set; }
+	public float Heading { get; set; }
 	public DateTime CreatedAt { get; set; }
 
 	public record VitalsData
