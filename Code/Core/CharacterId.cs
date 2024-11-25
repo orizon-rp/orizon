@@ -20,7 +20,7 @@ public readonly struct CharacterId
 		var parts = characterId.Split( ':' );
 
 		if ( parts.Length != 2 )
-			throw new ArgumentException( "Invalid character ID format." );
+			throw new ArgumentException( $"Invalid {nameof(CharacterId)} format." );
 
 		var steamId = SteamId.Parse( parts[0] );
 		_steamId = steamId;
@@ -31,7 +31,7 @@ public readonly struct CharacterId
 		var parsed = ushort.TryParse( parts[1], out _characterId );
 
 		if ( !parsed )
-			throw new ArgumentException( "Invalid character ID." );
+			throw new ArgumentException( $"Invalid {nameof(CharacterId)}." );
 	}
 
 	public override string ToString() => $"{_steamId}:{_characterId}";

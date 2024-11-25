@@ -11,7 +11,7 @@ public class SteamIdConverter : JsonConverter<SteamId>
 		if ( reader.TokenType is JsonTokenType.Number && reader.TryGetUInt64( out var value ) )
 			return value;
 
-		throw new JsonException( "Invalid value for SteamId." );
+		throw new JsonException( $"Invalid value for {nameof(SteamId)}." );
 	}
 
 	public override void Write( Utf8JsonWriter writer, SteamId value, JsonSerializerOptions options )
