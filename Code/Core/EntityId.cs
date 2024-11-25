@@ -5,7 +5,7 @@ using Orizon.Core.Json.Converters;
 namespace Orizon.Core;
 
 /// <summary>
-/// Represents a entitiy identifier.
+/// Represents a entity identifier.
 /// </summary>
 [JsonConverter( typeof(EntityIdConverter) )]
 public readonly struct EntityId : IEquatable<EntityId>, IEquatable<ulong>, IComparable, IComparable<EntityId>,
