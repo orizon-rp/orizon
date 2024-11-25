@@ -373,8 +373,12 @@
           "ConnectionUrl": "https://localhost:443"
         },
         {
-          "__type": "Orizon.Systems.GameManager",
-          "__guid": "f2f2176e-42c8-4a2d-a8b3-11443f3fbc0d"
+          "__type": "Orizon.Systems.NetworkGameManager",
+          "__guid": "c793e635-82de-494b-8387-8f55266c8af1",
+          "AutoSwitchToBestHost": false,
+          "DestroyWhenHostLeaves": true,
+          "LobbyName": "Orizon",
+          "MaxPlayers": 64
         }
       ]
     }
