@@ -59,8 +59,8 @@ public sealed class NetworkGameManager : Component, Component.INetworkListener
 		if ( !player.Network.Active ) player.GameObject.NetworkSpawn( connection );
 		else player.Network.AssignOwnership( connection );
 
-		await player.HostInit();
 		player.ClientInit();
+		await player.HostInit();
 
 		Scene.RunEvent<INetworkEvents>( x => x.OnPlayerJoined( player ) );
 	}
