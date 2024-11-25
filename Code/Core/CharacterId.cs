@@ -34,9 +34,9 @@ public readonly struct CharacterId
 			throw new ArgumentException( $"Invalid {nameof(CharacterId)}." );
 	}
 
-	public override string ToString() => $"{_steamId}:{_characterId}";
-
 	public static CharacterId Parse( string characterId ) => new(characterId);
+
+	public override string ToString() => $"{_steamId}:{_characterId}";
 
 	public static implicit operator string( CharacterId characterId ) => characterId.ToString();
 	public static implicit operator CharacterId( string characterId ) => new(characterId);
