@@ -7,7 +7,7 @@ namespace Orizon.Core.Models;
 [MongoCollection( "characters" )]
 public record CharacterData
 {
-	[JsonPropertyName( "_id" )] public CharacterId Id { get; set; } = null!;
+	[JsonPropertyName( "_id" )] public CharacterId Id { get; set; }
 
 	public string FirstName { get; set; } = null!;
 	public string LastName { get; set; } = null!;

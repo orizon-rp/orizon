@@ -37,6 +37,7 @@ public readonly struct CharacterId
 	/// <exception cref="ArgumentException">If the string is not a valid <see cref="CharacterId"/></exception>
 	public static CharacterId Parse( string characterId )
 	{
+		Log.Info( "Parse: " + characterId );
 		var parts = characterId.Split( ':' );
 
 		if ( parts.Length != 2 )
@@ -58,5 +59,4 @@ public readonly struct CharacterId
 	public override string ToString() => $"{Owner}:{Id}";
 
 	public static implicit operator string( CharacterId characterId ) => characterId.ToString();
-	public static implicit operator CharacterId( string characterId ) => Parse( characterId );
 }
