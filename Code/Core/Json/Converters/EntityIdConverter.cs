@@ -11,7 +11,7 @@ public class EntityIdConverter : JsonConverter<EntityId>
 		if ( reader.TokenType is JsonTokenType.Number && reader.TryGetUInt64( out var value ) )
 			return value;
 
-		throw new JsonException( $"Invalid value for {nameof(SteamId)}." );
+		throw new JsonException( $"Invalid value for {nameof(EntityId)}." );
 	}
 
 	public override void Write( Utf8JsonWriter writer, EntityId value, JsonSerializerOptions options )
