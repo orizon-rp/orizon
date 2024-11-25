@@ -1,4 +1,7 @@
-﻿namespace Orizon.Core;
+﻿using Orizon.Core.Network;
+using Orizon.Core.Network.Extensions;
+
+namespace Orizon.Core;
 
 public sealed class Player : Component
 {
@@ -8,7 +11,7 @@ public sealed class Player : Component
 	public Connection? Connection => Network.Owner;
 	public bool IsConnected => Connection is not null && (Connection.IsActive || Connection.IsHost);
 	public bool IsLocalPlayer => !IsProxy && Connection == Connection.Local;
-	
+
 	public static Player Local { get; private set; } = null!;
 
 	internal void HostInit()
@@ -27,5 +30,11 @@ public sealed class Player : Component
 	internal void ClientInit()
 	{
 		Local = this;
+	}
+
+	public void Kick( DisconnectedReason reason = DisconnectedReason.Disconnected )
+	{
+		Scene.RunEvent<INetworkEvents>( x => x.OnPlayerDisconnected( this, reason ) );
+		Connection?.Kick( reason.ToMessage() );
 	}
 }
