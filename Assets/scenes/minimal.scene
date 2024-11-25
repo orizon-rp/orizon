@@ -385,21 +385,6 @@
           }
         }
       ]
-    },
-    {
-      "__guid": "5233af59-ac10-4c3e-8377-28a0f799a4e8",
-      "Flags": 0,
-      "Name": "Player Controller",
-      "Position": "-126.4293,-187.5311,115.5769",
-      "Enabled": true,
-      "__Prefab": "prefabs/player/player controller.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "f89fc57d-b1ce-43cb-9db2-3489a9929162",
-      "Flags": 0,
-      "Name": "GameObject",
-      "Enabled": true
     }
   ],
   "SceneProperties": {
