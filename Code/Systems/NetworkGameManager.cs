@@ -8,7 +8,7 @@ namespace Orizon.Systems;
 
 public sealed class NetworkGameManager : Component, Component.INetworkListener
 {
-	[Property] public GameObject PlayerPrefab { get; private set; } = null!;
+	[Property] public GameObject PlayerPrefab { get; private init; } = null!;
 
 	[Property, Feature( "Lobby" )] public string LobbyName { get; private set; } = "Orizon";
 	[Property, Feature( "Lobby" )] public int MaxPlayers { get; private set; } = 64;
