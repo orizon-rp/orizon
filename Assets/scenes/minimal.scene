@@ -367,6 +367,11 @@
       "Enabled": true,
       "Components": [
         {
+          "__type": "Orizon.Core.Systems.DatabaseInitializer",
+          "__guid": "4ec1347d-d8db-4f70-9564-519b2c82c05f",
+          "ConnectionKind": "Localhost"
+        },
+        {
           "__type": "Orizon.Core.Systems.GameManager",
           "__guid": "f6f1305a-3372-4586-ae80-232c68b8e9fa"
         }
