@@ -2,7 +2,7 @@
 
 public sealed class Player : Component
 {
-	[HostSync, Property] public SteamId SteamId { get; set; }
+	[HostSync, Property] public SteamId SteamId { get; private set; }
 	[HostSync, Property] public string SteamName { get; set; } = null!;
 
 	public Connection? Connection => Network.Owner;
