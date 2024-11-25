@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Text.Json.Serialization;
+using Orizon.Core.Json.Converters;
 
 namespace Orizon.Core;
 
+[JsonConverter( typeof(CharacterIdConverter) )]
 public readonly struct CharacterId
 {
 	private readonly SteamId _steamId;
@@ -9,7 +12,7 @@ public readonly struct CharacterId
 
 	public SteamId Owner => _steamId;
 	public ushort Id => _characterId;
-	
+
 	public CharacterId( SteamId steamId, ushort characterId ) => (_steamId, _characterId) = (steamId, characterId);
 
 	private CharacterId( string characterId )
