@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Text.Json.Serialization;
+using Orizon.Core.Json.Converters;
 
 namespace Orizon.Core;
 
+[JsonConverter( typeof(EntityIdConverter) )]
 public readonly struct EntityId : IEquatable<EntityId>, IEquatable<ulong>, IComparable, IComparable<EntityId>,
 	IComparable<ulong>
 {
@@ -46,9 +49,9 @@ public readonly struct EntityId : IEquatable<EntityId>, IEquatable<ulong>, IComp
 	{
 		return _value.CompareTo( other._value );
 	}
-	
+
 	public override string ToString() => _value.ToString();
-	
+
 	public static implicit operator EntityId( ulong value ) => new(value);
 	public static implicit operator ulong( EntityId value ) => value._value;
 
