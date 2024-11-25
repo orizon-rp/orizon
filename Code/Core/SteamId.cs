@@ -9,7 +9,7 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 
 	public static SteamId Local => Game.SteamId;
 
-	public SteamId( ulong value )
+	private SteamId( ulong value )
 	{
 		_value = value;
 	}
@@ -46,13 +46,18 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 
 		return _value.CompareTo( obj );
 	}
-	
+
 	public int CompareTo( SteamId other )
 	{
 		return _value.CompareTo( other._value );
 	}
 
 	public override string ToString() => _value.ToString();
+
+	public static ulong Parse( string value )
+	{
+		return ulong.TryParse( value, out var steamId ) ? steamId : 0;
+	}
 
 	public static implicit operator ulong( SteamId id ) => id._value;
 	public static implicit operator SteamId( long id ) => new((ulong)id);
