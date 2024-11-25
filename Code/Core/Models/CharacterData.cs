@@ -7,14 +7,14 @@ namespace Orizon.Core.Models;
 [MongoCollection( "characters" )]
 public record CharacterData
 {
-	[JsonPropertyName( "_id" )] public CharacterId Id { get; init; } = null!;
+	[JsonPropertyName( "_id" )] public CharacterId Id { get; set; } = null!;
 
-	public string FirstName { get; init; } = null!;
-	public string LastName { get; init; } = null!;
-	public DateTime DateOfBirth { get; init; }
-	public Gender Gender { get; init; }
+	public string FirstName { get; set; } = null!;
+	public string LastName { get; set; } = null!;
+	public DateTime DateOfBirth { get; set; }
+	public Gender Gender { get; set; }
 	public VitalsData Vitals { get; set; } = null!;
-	public DateTime CreatedAt { get; init; }
+	public DateTime CreatedAt { get; set; }
 
 	public record VitalsData
 	{
@@ -23,4 +23,8 @@ public record CharacterData
 		public float Hunger { get; set; }
 		public float Thirst { get; set; }
 	}
+}
+
+public sealed class CharacterRepository : MongoRepository<CharacterData>
+{
 }
