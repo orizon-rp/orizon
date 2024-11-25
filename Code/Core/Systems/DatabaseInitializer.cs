@@ -30,6 +30,8 @@ public enum DatabaseConnectionKind
 [Description( "Initializes the database connection" )]
 public sealed class DatabaseInitializer : Component
 {
+	public const string DefaultApiUrl = "https://localhost:443";
+	
 	/// <summary>
 	/// Defines how the database connection should be initialized.
 	/// <list type="bullet">
@@ -44,13 +46,13 @@ public sealed class DatabaseInitializer : Component
 	/// Only applicable if <see cref="ConnectionKind"/> is set to <see cref="DatabaseConnectionKind.Remote"/>.
 	/// </summary>
 	[Property, ShowIf( nameof(ConnectionKind), DatabaseConnectionKind.Remote )]
-	public string ConnectionUrl { get; private set; } = "https://localhost:443";
+	public string ConnectionUrl { get; private set; } = DefaultApiUrl;
 
 	protected override void OnAwake()
 	{
 		var url = ConnectionKind switch
 		{
-			DatabaseConnectionKind.Localhost => "https://localhost:443",
+			DatabaseConnectionKind.Localhost => DefaultApiUrl,
 			DatabaseConnectionKind.Remote => ConnectionUrl,
 			_ => string.Empty
 		};
