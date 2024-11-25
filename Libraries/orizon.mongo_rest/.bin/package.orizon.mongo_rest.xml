@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>package.orizon.mongo_rest</name>
+    </assembly>
+    <members>
+        <member name="T:Mongo.Rest.BsonDocument">
+            <summary>
+            A BSON document that can be used to interact with the REST API.
+            </summary>
+        </member>
+        <member name="P:Mongo.Rest.BsonDocument.Id">
+            <summary>
+            The document id.
+            </summary>
+        </member>
+        <member name="P:Mongo.Rest.BsonDocument.TypeName">
+            <summary>
+            The name of the type that this document represents.
+            </summary>
+        </member>
+        <member name="M:Mongo.Rest.BsonDocument.RemoveId">
+            <summary>
+            Removes the "_id" field from the document.
+            </summary>
+        </member>
+        <member name="M:Mongo.Rest.BsonDocument.ToString">
+            <summary>
+            Converts the BSON document to a JSON string.
+            </summary>
+            <returns>A JSON string representation of the BSON document.</returns>
+        </member>
+        <member name="M:Mongo.Rest.BsonDocument.ToObject">
+            <summary>
+            Converts the BSON document to an object.
+            </summary>
+            <returns>The object representation of the BSON document.</returns>
+        </member>
+        <member name="M:Mongo.Rest.BsonDocument.Parse(System.Object)">
+            <summary>
+            Parses an object into a BSON document.
+            </summary>
+            <param name="value">The object to parse.</param>
+            <returns>The BSON document parsed from the object.</returns>
+        </member>
+        <member name="P:Mongo.Rest.IMongoRepository.CollectionName">
+            <summary>
+            Gets the name of the collection in the database.
+            </summary>
+            <value>The name of the collection.</value>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository.GetInnerType">
+            <summary>
+            Gets the underlying type of the repository.
+            </summary>
+            <returns>The underlying type of the repository.</returns>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository`1.InsertAsync(`0[])">
+            <summary>
+            Inserts multiple documents into the collection.
+            </summary>
+            <param name="values">The documents to insert.</param>
+            <returns>
+            true if the insert operation is successful, false otherwise.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository`1.GetAsync(System.Action{`0},System.Int32)">
+            <summary>
+            Retrieves a list of documents from the collection that match the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <param name="limit">The maximum number of documents to return. Defaults to 100.</param>
+            <returns>
+            A list of documents that match the filter.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository`1.UpdateAsync(System.Action{`0},System.Action{`0})">
+            <summary>
+            Updates multiple documents in the collection.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <param name="update">The update to apply to the documents.</param>
+            <returns>
+            A boolean indicating whether the update was successful.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository`1.DeleteAsync(System.Action{`0})">
+            <summary>
+            Deletes multiple documents in the collection that match the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <returns>
+            A boolean indicating whether the delete was successful.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository`1.CountAsync(System.Action{`0})">
+            <summary>
+            Counts the number of documents that match the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <returns>The number of documents that match the filter.</returns>
+        </member>
+        <member name="M:Mongo.Rest.IMongoRepository`1.ExistsAsync(System.Action{`0})">
+            <summary>
+            Checks if a document exists in the collection that matches the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <returns>
+            A boolean indicating whether the document exists.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.#ctor(Sandbox.Scene)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mongo.Rest.MongoRepository`1"/> class.
+            Mainly used for unit tests
+            </summary>
+            <param name="scene">The scene.</param>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.InsertAsync(`0[])">
+            <summary>
+            Inserts a list of documents into the collection.
+            </summary>
+            <param name="values">The documents to insert.</param>
+            <returns>
+            A boolean indicating whether the insert was successful.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.GetAsync(System.Action{`0},System.Int32)">
+            <summary>
+            Retrieves a list of documents from the collection that match the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <param name="limit">The maximum number of documents to return. Defaults to 100.</param>
+            <returns>
+            A list of documents that match the filter.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.UpdateAsync(System.Action{`0},System.Action{`0})">
+            <summary>
+            Updates multiple documents in the collection.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <param name="update">The update to apply to the documents.</param>
+            <returns>
+            A boolean indicating whether the update was successful.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.DeleteAsync(System.Action{`0})">
+            <summary>
+            Deletes multiple documents in the collection that match the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <returns>
+            A boolean indicating whether the delete was successful.
+            </returns>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.CountAsync(System.Action{`0})">
+            <summary>
+            Counts the number of documents that match the filter.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <returns>The number of documents that match the filter.</returns>
+        </member>
+        <member name="M:Mongo.Rest.MongoRepository`1.ExistsAsync(System.Action{`0})">
+            <summary>
+            Checks if a document that matches the filter exists in the collection.
+            </summary>
+            <param name="filter">The filter to apply to the documents.</param>
+            <returns>
+            true if a document that matches the filter exists in the collection, false otherwise.
+            </returns>
+        </member>
+        <member name="P:Mongo.Rest.IMongoRestOptions.Database">
+            <summary>
+            Not implemented yet
+            </summary>
+        </member>
+    </members>
+</doc>
