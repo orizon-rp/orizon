@@ -5,7 +5,7 @@ using Orizon.Core.Json.Converters;
 namespace Orizon.Core;
 
 /// <summary>
-/// Represents an Orizon character ID
+/// Represents a character identifier
 /// </summary>
 [JsonConverter( typeof(CharacterIdConverter) )]
 public readonly struct CharacterId

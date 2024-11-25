@@ -5,11 +5,8 @@ using Orizon.Core.Json.Converters;
 namespace Orizon.Core;
 
 /// <summary>
-/// Represents an ID that can be used to identify an entity in a data store.
+/// Represents a entitiy identifier.
 /// </summary>
-/// <remarks>
-/// This type is used to represent an ID that can be used to identify an entity in a data store.
-/// </remarks>
 [JsonConverter( typeof(EntityIdConverter) )]
 public readonly struct EntityId : IEquatable<EntityId>, IEquatable<ulong>, IComparable, IComparable<EntityId>,
 	IComparable<ulong>
