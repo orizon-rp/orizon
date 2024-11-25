@@ -32,7 +32,7 @@ public sealed class Player : Component
 		Local = this;
 	}
 
-	public void Kick( DisconnectedReason reason = DisconnectedReason.Disconnected )
+	public void Kick( DisconnectedReason reason = DisconnectedReason.None )
 	{
 		Scene.RunEvent<INetworkEvents>( x => x.OnPlayerDisconnected( this, reason ) );
 		Connection?.Kick( reason.ToMessage() );
