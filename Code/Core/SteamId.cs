@@ -46,6 +46,11 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 
 		return _value.CompareTo( obj );
 	}
+	
+	public int CompareTo( SteamId other )
+	{
+		return _value.CompareTo( other._value );
+	}
 
 	public override string ToString() => _value.ToString();
 
@@ -53,11 +58,6 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 	public static implicit operator SteamId( long id ) => new((ulong)id);
 	public static implicit operator SteamId( ulong id ) => new(id);
 
-	public static bool operator ==( SteamId id1, SteamId id2 ) => id1._value == id2._value;
-	public static bool operator !=( SteamId id1, SteamId id2 ) => id1._value != id2._value;
-
-	public int CompareTo( SteamId other )
-	{
-		return _value.CompareTo( other._value );
-	}
+	public static bool operator ==( SteamId left, SteamId right ) => left._value == right._value;
+	public static bool operator !=( SteamId left, SteamId right ) => left._value != right._value;
 }
