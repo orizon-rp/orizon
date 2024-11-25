@@ -10,8 +10,8 @@ public record PlayerData
 	[JsonPropertyName("_id")] public string Id { get; init; } = null!;
 	
 	public SteamId Owner { get; init; }
-	public CharacterId Character { get; init; }
+	public CharacterId Character { get; set; }
 	public List<CharacterId> Characters { get; init; } = null!;
-	public DateTime LastLogin { get; init; }
+	public DateTime LastLogin { get; set; }
 	public DateTime CreatedAt { get; init; }
 }
