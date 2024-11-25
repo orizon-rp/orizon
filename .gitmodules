@@ -1,0 +1,3 @@
+[submodule "Libraries/orizon.mongo_rest"]
+	path = Libraries/orizon.mongo_rest
+	url = https://github.com/orizon-rp/MongoRest.Client
