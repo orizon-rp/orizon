@@ -30,7 +30,7 @@ public enum DatabaseConnectionKind
 [Description( "Initializes the database connection" )]
 public sealed class DatabaseInitializer : Component
 {
-	public const string DefaultApiUrl = "https://localhost:443";
+	private const string DefaultApiUrl = "https://localhost:443";
 	
 	/// <summary>
 	/// Defines how the database connection should be initialized.
