@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Mongo.Rest;
 using Orizon.Core;
+using Orizon.Core.Models;
 using Orizon.Core.Network;
 using Sandbox.Diagnostics;
 using Sandbox.Network;
@@ -34,7 +37,7 @@ public sealed class NetworkGameManager : Component, Component.INetworkListener
 		Networking.CreateLobby( LobbyConfig );
 	}
 
-	void INetworkListener.OnActive( Connection channel )
+	async void INetworkListener.OnActive( Connection channel )
 	{
 		Log.Info( $"Player {channel.SteamId} has joined the game" );
 
@@ -46,20 +49,17 @@ public sealed class NetworkGameManager : Component, Component.INetworkListener
 				$"Something went wrong when trying to create {nameof(PlayerPrefab)} for {channel.DisplayName}" );
 		}
 
-		OnPlayerJoined( player, channel );
-
-		// TODO - Create a PlayerData for the new player and insert it into the database
-		// (Only if the player is not already in the database)
+		await OnPlayerJoined( player, channel );
 	}
 
-	private void OnPlayerJoined( Player player, Connection connection )
+	private async Task OnPlayerJoined( Player player, Connection connection )
 	{
 		Scene.RunEvent<INetworkEvents>( x => x.OnPlayerConnected( player ) );
 
 		if ( !player.Network.Active ) player.GameObject.NetworkSpawn( connection );
 		else player.Network.AssignOwnership( connection );
 
-		player.HostInit();
+		await player.HostInit();
 		player.ClientInit();
 
 		Scene.RunEvent<INetworkEvents>( x => x.OnPlayerJoined( player ) );
