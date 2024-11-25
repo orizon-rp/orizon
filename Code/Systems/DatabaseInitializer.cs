@@ -1,6 +1,6 @@
 ﻿using Mongo.Rest;
 
-namespace Orizon.Core.Systems;
+namespace Orizon.Systems;
 
 /// <summary>
 /// Defines how the database connection should be initialized.

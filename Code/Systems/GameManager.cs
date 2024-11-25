@@ -1,4 +1,4 @@
-﻿namespace Orizon.Core.Systems;
+﻿namespace Orizon.Systems;
 
 public sealed class GameManager : Component, Component.INetworkListener
 {
