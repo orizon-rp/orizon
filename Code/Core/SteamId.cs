@@ -14,7 +14,7 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 	private readonly ulong _value;
 
 	/// <summary>
-	/// Gets the SteamID of the local user
+	/// Get your own SteamId
 	/// </summary>
 	public static SteamId Local => Game.SteamId;
 
@@ -107,6 +107,15 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 	public static ulong Parse( string value )
 	{
 		return ulong.TryParse( value, out var steamId ) ? steamId : 0;
+	}
+
+	/// <summary>
+	/// Return what type os SteamId this is
+	/// </summary>
+	[JsonIgnore]
+	public Sandbox.SteamId.AccountTypes AccountType
+	{
+		get => (Sandbox.SteamId.AccountTypes)(byte)(_value >> 52 & 15UL);
 	}
 
 	/// <summary>
