@@ -118,6 +118,8 @@ public readonly struct SteamId : IEquatable<SteamId>, IEquatable<ulong>, ICompar
 	public static implicit operator ulong( SteamId id ) => id._value;
 	public static implicit operator SteamId( long id ) => new((ulong)id);
 	public static implicit operator SteamId( ulong id ) => new(id);
+	public static implicit operator SteamId( Sandbox.SteamId steamId ) => new(steamId.ValueUnsigned);
+	public static implicit operator Sandbox.SteamId( SteamId steamId ) => new(steamId._value);
 
 	public static bool operator ==( SteamId left, SteamId right ) => left._value == right._value;
 	public static bool operator !=( SteamId left, SteamId right ) => left._value != right._value;
